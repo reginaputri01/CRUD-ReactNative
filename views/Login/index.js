@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import {AsyncStorage, ToastAndroid} from 'react-native';
 import {
@@ -31,7 +32,8 @@ export default class FormExample extends Component {
       email: email,
       password: password,
     };
-    axios
+    axios //ada put, post, delete, get
+      //post butuh 2 parameter, url + data(payload)
       .post('http://ec2-3-81-168-96.compute-1.amazonaws.com/api/login', payload)
       .then(async value => {
         await AsyncStorage.setItem('access_token', value.data.access_token);
@@ -49,7 +51,7 @@ export default class FormExample extends Component {
     const {email, password} = this.state;
     return (
       <Container padder>
-        <Header>
+        <Header style={{backgroundColor: '#20B2AA'}}>
           <Body>
             <Title>Login</Title>
           </Body>
@@ -57,14 +59,14 @@ export default class FormExample extends Component {
         </Header>
         <Content>
           <Form>
-            <Item>
+            <Item style={{marginRight: 20}}>
               <Input
                 placeholder="Email"
                 value={email}
                 onChangeText={value => this.setState({email: value})}
               />
             </Item>
-            <Item>
+            <Item style={{marginRight: 20}}>
               <Input
                 placeholder="Password"
                 value={password}

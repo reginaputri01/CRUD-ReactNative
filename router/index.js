@@ -7,6 +7,6 @@ export default createAppContainer(
       Login: LoginStack,
       Home: HomeStack,
     },
-    {initialRouteName: 'Home'},
+    {initialRouteName: 'Login'},
   ),
 );
